@@ -76,10 +76,6 @@
 	<js-module src="src/windows/NativeAudioProxy.js" name="NativeAudioProxy">
             <runs />
         </js-module>
-
-        <framework src="Foundation.framework"/>
-        <framework src="AVFoundation.framework"/>
-        <framework src="AudioToolbox.framework"/>
     </platform>
 
 </plugin>
