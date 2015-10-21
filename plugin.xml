@@ -64,4 +64,22 @@
 
     </platform>
 
+    <!-- windows-->
+    <platform name="windows">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="NativeAudio">
+                <param name="windows-package" value="NativeAudio"/>
+            </feature>
+        </config-file>
+
+	<js-module src="src/windows/NativeAudioProxy.js" name="NativeAudioProxy">
+            <runs />
+        </js-module>
+
+        <framework src="Foundation.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="AudioToolbox.framework"/>
+    </platform>
+
 </plugin>
