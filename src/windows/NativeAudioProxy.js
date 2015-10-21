@@ -60,17 +60,18 @@ module.exports = {
         // 
             var finalize = function () {
                 _graph.createFileInputNodeAsync(assetPath).done(
-                function (result) {  
-                    if (addFileInput(id, result.fileInputNode, 1, 1, 0)) {
-                        _fileInputNode.Stop();
-                        _fileInputNode.AddOutgoingConnection(_deviceOutput);
-                        successCallback();
-                    } else {
-                        errorCallback('file with id ' + id + ' is already loaded');
-                    }
-                },
-                function (e) { handleError('error preloading file ' + e);  errorCallback(e); }
-            );
+                    function (result) {  
+                        if (addFileInput(id, result.fileInputNode, 1, 1, 0)) {
+                            _fileInputNode.Stop();
+                            _fileInputNode.AddOutgoingConnection(_deviceOutput);
+                            successCallback();
+                        } else {
+                            errorCallback('file with id ' + id + ' is already loaded');
+                        }
+                    },
+                    function (e) { handleError('error preloading file ' + e);  errorCallback(e); }
+                );
+            }
         //  ^
         //  |
         
@@ -86,17 +87,18 @@ module.exports = {
         //
             var finalize = function () {
                 _graph.createFileInputNodeAsync(assetPath).done(
-                function (result) {  
-                    if (addFileInput(id, result.fileInputNode, volume, voices, delay)) {
-                        _fileInputNode.Stop();
-                        _fileInputNode.AddOutgoingConnection(_deviceOutput);
-                        successCallback();
-                    } else {
-                        errorCallback('file with id ' + id + ' is already loaded');
-                    }     
-                },
-                function (e) { handleError('error preloading file ' + e);  errorCallback(e); }
-            );
+                    function (result) {  
+                        if (addFileInput(id, result.fileInputNode, volume, voices, delay)) {
+                            _fileInputNode.Stop();
+                            _fileInputNode.AddOutgoingConnection(_deviceOutput);
+                            successCallback();
+                        } else {
+                            errorCallback('file with id ' + id + ' is already loaded');
+                        }     
+                    },
+                    function (e) { handleError('error preloading file ' + e);  errorCallback(e); }
+                );
+            }
         //  ^
         //  |
         
