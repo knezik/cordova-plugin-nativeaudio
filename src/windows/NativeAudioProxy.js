@@ -17,7 +17,7 @@ function addFileInput(id, node, volume, voices, delay) {
         _fileInputs[id].settings.voices = voices;                    
         _fileInputs[id].settings.delay = delay;
         
-        retun true; 
+        return true; 
     } else {
         handleError('file with id ' + id + ' is already loaded');
         return false;
