@@ -151,4 +151,4 @@ module.exports = {
 };
 
 
-require("cordova/exec/proxy").add("NativeAudioPlugin", module.exports);
+require("cordova/exec/proxy").add("NativeAudio", module.exports);
