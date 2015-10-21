@@ -1,8 +1,9 @@
 module.exports = {
-    
-    setOptions: function(successCallback, errorCallback, options) {
+
+    setOptions: function(successCallback, errorCallback, args) {
+        var options = args[0];
         var res = NativeAudioRT.NativeAudioRTImpl.setOptions(options);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
@@ -11,9 +12,11 @@ module.exports = {
         }
     },
 
-    preloadSimple: function(successCallback, errorCallback, id, assetPath) {
+    preloadSimple: function(successCallback, errorCallback, args) {
+        var id = args[0];
+        var assetPath = args[1];
         var res = NativeAudioRT.NativeAudioRTImpl.preloadSimple(id, assetPath);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
@@ -22,9 +25,14 @@ module.exports = {
         }
     },
 
-    preloadComplex: function(successCallback, errorCallback, id, assetPath, volume, voices, delay) {
+    preloadComplex: function(successCallback, errorCallback, args) {
+        var id = args[0];
+        var assetPath = args[1];
+        var volume = args[2];
+        var voices = args[3];
+        var delay = args[4];
         var res = NativeAudioRT.NativeAudioRTImpl.preloadComplex(id, assetPath, volume, voices, delay);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
@@ -32,10 +40,11 @@ module.exports = {
             successCallback(res);
         }
     },
-    
-    play: function(successCallback, errorCallback, id) {
+
+    play: function(successCallback, errorCallback, args) {
+        var id = args[0];
         var res = NativeAudioRT.NativeAudioRTImpl.play(id);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
@@ -43,10 +52,11 @@ module.exports = {
             successCallback(res);
         }
     },
-    
-    loop: function(successCallback, errorCallback, id) {
+
+    loop: function(successCallback, errorCallback, args) {
+        var id = args[0];
         var res = NativeAudioRT.NativeAudioRTImpl.loop(id);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
@@ -54,10 +64,11 @@ module.exports = {
             successCallback(res);
         }
     },
-    
-    stop: function(successCallback, errorCallback, id) {
+
+    stop: function(successCallback, errorCallback, args) {
+        var id = args[0];
         var res = NativeAudioRT.NativeAudioRTImpl.stop(id);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
@@ -65,21 +76,24 @@ module.exports = {
             successCallback(res);
         }
     },
-    
-    unload: function(successCallback, errorCallback, id) {
+
+    unload: function(successCallback, errorCallback, args) {
+        var id = args[0];
         var res = NativeAudioRT.NativeAudioRTImpl.unload(id);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
         else {
             successCallback(res);
-        }       
+        }
     },
-    
-    setVolumeForComplexAsset: function(successCallback, errorCallback, id, volume) {
+
+    setVolumeForComplexAsset: function(successCallback, errorCallback, args) {
+        var id = args[0];
+        var volume = args[1];
         var res = NativeAudioRT.NativeAudioRTImpl.setVolumeForComplexAsset(id, volume);
-        
+
         if (res == 0) {
             errorCallback(res);
         }
