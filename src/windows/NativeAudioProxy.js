@@ -120,7 +120,7 @@ module.exports = {
             sound.start();
             
             successCallback();
-        ) else {
+        } else {
             handleError('file with id ' + id + ' is not loaded');  
             errorCallback('file with id ' + id + ' is not loaded');
         }
