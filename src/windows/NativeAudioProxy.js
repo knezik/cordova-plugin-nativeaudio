@@ -65,7 +65,7 @@ module.exports = {
                         _fileInputNode.Stop();
                         _fileInputNode.AddOutgoingConnection(_deviceOutput);
                         successCallback();
-                    else {
+                    } else {
                         errorCallback('file with id ' + id + ' is already loaded');
                     }
                 },
@@ -117,36 +117,62 @@ module.exports = {
             sound.seek(settings.delay);
             sound.start();
             
+            successCallback();
         ) else {
-            handleError('error preloading file ' + e);  
-            errorCallback(e);
+            handleError('file with id ' + id + ' is not loaded');  
+            errorCallback('file with id ' + id + ' is not loaded');
         }
     },
     
     loop: function(successCallback, errorCallback, id) {
-        var sound = _fileInputs[id].sound;
-        var settings = _fileInputs[id].settings;
-        
-        sound.outgoingGain = settings.volume;
-        sound.seek(settings.delay);
-        sound.loopCount = null;
-        sound.start();
+        if (_fileInputs[id]) {
+            var sound = _fileInputs[id].sound;
+            var settings = _fileInputs[id].settings;
+            
+            sound.outgoingGain = settings.volume;
+            sound.seek(settings.delay);
+            sound.loopCount = null;
+            sound.start();
+            
+            successCallback();
+        } else {
+            handleError('file with id ' + id + ' is not loaded');  
+            errorCallback('file with id ' + id + ' is not loaded');
+        }
     },
     
     stop: function(successCallback, errorCallback, id) {
-        var sound = _fileInputs[id].sound;
-        
-        sound.stop();
+        if (_fileInputs[id]) {
+            var sound = _fileInputs[id].sound;
+            
+            sound.stop();
+            successCallback();
+        } else {
+            handleError('file with id ' + id + ' is not loaded');  
+            errorCallback('file with id ' + id + ' is not loaded');
+        }   
     },
     
     unload: function(successCallback, errorCallback, id) {
-        delete _fileInputs[id];
+        if (_fileInputs[id]) {
+            delete _fileInputs[id];
+            successCallback();
+        } else {
+            handleError('file with id ' + id + ' is not loaded');  
+            errorCallback('file with id ' + id + ' is not loaded');
+        }       
     },
     
     setVolumeForComplexAsset: function(successCallback, errorCallback, id, volume) {
-        var sound = _fileInputs[id].sound;
+        if (_fileInputs[id]) {
+            var sound = _fileInputs[id].sound;
         
-        sound.outgoingGain = volume;
+            sound.outgoingGain = volume;
+            successCallback();
+        } else { 
+            handleError('file with id ' + id + ' is not loaded');  
+            errorCallback('file with id ' + id + ' is not loaded');
+        }
     }
 };
 
