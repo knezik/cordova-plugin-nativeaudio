@@ -2,7 +2,7 @@ module.exports = {
 
     setOptions: function(successCallback, errorCallback, args) {
         var options = args[0];
-        var res = NativeAudioRT.NativeAudioRTImpl.setOptions(options);
+        var res = NativeAudio.NativeAudioImpl.setOptions(options);
 
         if (res == 0) {
             errorCallback(res);
@@ -15,7 +15,7 @@ module.exports = {
     preloadSimple: function(successCallback, errorCallback, args) {
         var id = args[0];
         var assetPath = args[1];
-        var res = NativeAudioRT.NativeAudioRTImpl.preloadSimple(id, assetPath);
+        var res = NativeAudio.NativeAudioImpl.preloadSimple(id, assetPath);
 
         if (res == 0) {
             errorCallback(res);
@@ -31,7 +31,7 @@ module.exports = {
         var volume = args[2];
         var voices = args[3];
         var delay = args[4];
-        var res = NativeAudioRT.NativeAudioRTImpl.preloadComplex(id, assetPath, volume, voices, delay);
+        var res = NativeAudio.NativeAudioImpl.preloadComplex(id, assetPath, volume, voices, delay);
 
         if (res == 0) {
             errorCallback(res);
@@ -43,7 +43,7 @@ module.exports = {
 
     play: function(successCallback, errorCallback, args) {
         var id = args[0];
-        var res = NativeAudioRT.NativeAudioRTImpl.play(id);
+        var res = NativeAudio.NativeAudioImpl.play(id);
 
         if (res == 0) {
             errorCallback(res);
@@ -55,7 +55,7 @@ module.exports = {
 
     loop: function(successCallback, errorCallback, args) {
         var id = args[0];
-        var res = NativeAudioRT.NativeAudioRTImpl.loop(id);
+        var res = NativeAudio.NativeAudioImpl.loop(id);
 
         if (res == 0) {
             errorCallback(res);
@@ -67,7 +67,7 @@ module.exports = {
 
     stop: function(successCallback, errorCallback, args) {
         var id = args[0];
-        var res = NativeAudioRT.NativeAudioRTImpl.stop(id);
+        var res = NativeAudio.NativeAudioImpl.stop(id);
 
         if (res == 0) {
             errorCallback(res);
@@ -79,7 +79,7 @@ module.exports = {
 
     unload: function(successCallback, errorCallback, args) {
         var id = args[0];
-        var res = NativeAudioRT.NativeAudioRTImpl.unload(id);
+        var res = NativeAudio.NativeAudioImpl.unload(id);
 
         if (res == 0) {
             errorCallback(res);
@@ -92,7 +92,7 @@ module.exports = {
     setVolumeForComplexAsset: function(successCallback, errorCallback, args) {
         var id = args[0];
         var volume = args[1];
-        var res = NativeAudioRT.NativeAudioRTImpl.setVolumeForComplexAsset(id, volume);
+        var res = NativeAudio.NativeAudioImpl.setVolumeForComplexAsset(id, volume);
 
         if (res == 0) {
             errorCallback(res);
