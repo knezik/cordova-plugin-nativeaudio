@@ -76,6 +76,7 @@
 	<js-module src="src/windows/NativeAudioProxy.js" name="NativeAudioProxy">
             <runs />
         </js-module>
-    </platform>
 
+	<framework src="src/windows/NativeAudio.winmd" custom="true" />
+    </platform>
 </plugin>
